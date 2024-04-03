@@ -33,6 +33,22 @@ with open (bank_csv, encoding='utf-8') as csv_file:
             change.append(float(row[1])-last)       # takes the difference between this and last period and stores to change[] 
         last = float(row[1])                        # final action of loop: stores this period as last to perform the above
 
+output = (
+    "Financial Analysis\n\n"
+    "---------------------------- \n\n"
+    "Total Months: " + str(len(month)) + "\n\n"
+    "Total: " + str(locale.currency(sum(pnl))) + "\n\n"
+    "Average Change: " + str(locale.currency(sum(change) / (len(change) - 1))) + "\n\n" # len-1 ignores first index (null)
+    "Greatest Increase in Profits: " + str(month[change.index(max(change))]) + " " + str(locale.currency(max(change))) + "\n\n"
+    "Greatest Decrease in Profits: " + str(month[change.index(min(change))]) + " " + str(locale.currency(min(change))) + "\n\n"
+)
+
+print("\n" + output)
+results = os.path.join("results.txt")
+with open (results,'w') as txt_file:
+        txt_file.write(output)
+
+'''
 print(f"\nFinancial Analysis \n")
 print(f"---------------------------- \n")
 print(f"Total Months: " + str(len(month)) + "\n")
@@ -40,5 +56,5 @@ print(f"Total: " + str(locale.currency(sum(pnl))) + "\n")
 print(f"Average Change: " + str(locale.currency(sum(change) / (len(change) - 1))) + "\n") # len-1 ignores first index (null)
 print(f"Greatest Increase in Profits: " + str(month[change.index(max(change))]) + " " + str(locale.currency(max(change))) + "\n")
 print(f"Greatest Decrease in Profits: " + str(month[change.index(min(change))]) + " " + str(locale.currency(min(change))) + "\n")
-
+'''
 
