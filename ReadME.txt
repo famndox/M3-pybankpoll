@@ -3,7 +3,7 @@ James Behnke - Module 3 Challenge
 File Paths:
 
 M3-pybankpoll
-	ReadME.txt <-- you are here!
+	ReadME.txt <-- [[you are here!]]
 	PyBank
 		pybank.py <- does the first part
 		Resources
